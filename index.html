@@ -76,6 +76,9 @@
       transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
       user-select: none;
       white-space: nowrap;
+      min-width: 180px;
+      width: 100%;
+      max-width: 280px;
     }
     .btn-primary{
       color: #06101f;
@@ -103,22 +106,32 @@
       padding: 80px 0 40px;
       position: relative;
       overflow:hidden;
-      background:
-        radial-gradient(1200px 700px at 20% -10%, rgba(96,165,250,.25), transparent 60%),
-        radial-gradient(900px 600px at 95% 10%, rgba(167,139,250,.20), transparent 55%),
-        radial-gradient(900px 700px at 40% 90%, rgba(245,158,11,.14), transparent 55%);
+      background: linear-gradient(180deg, var(--bg0), var(--bg1));
     }
 
     .hero::before{
       content:"";
       position:absolute;
-      inset: 0;
+      top: -200px;
+      left: -300px;
+      width: 800px;
+      height: 800px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(96,165,250,.25), transparent 70%);
       pointer-events:none;
-      background:
-        linear-gradient(to right, rgba(255,255,255,.06) 1px, transparent 1px) 0 0 / 70px 70px,
-        linear-gradient(to bottom, rgba(255,255,255,.06) 1px, transparent 1px) 0 0 / 70px 70px;
-      opacity:.12;
-      mask-image: radial-gradient(circle at 30% 20%, black 0%, transparent 55%);
+      z-index: 0;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      bottom: -400px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(167,139,250,.20), transparent 70%);
+      pointer-events:none;
       z-index: 0;
     }
 
@@ -369,11 +382,125 @@
 
     /* Sections */
     section{ 
-      padding: 56px 0; 
-      background:
-        radial-gradient(1000px 600px at 10% 50%, rgba(96,165,250,.08), transparent 60%),
-        radial-gradient(900px 500px at 90% 50%, rgba(167,139,250,.08), transparent 55%);
+      padding: 80px 0;
+      position: relative;
+      background: linear-gradient(180deg, var(--bg0), var(--bg1));
     }
+
+    section::before{
+      content:"";
+      position: absolute;
+      inset: 0;
+      background: inherit;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    section:nth-child(2)::after{
+      content:"";
+      position:absolute;
+      top: 20%;
+      right: -400px;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,158,11,.12), transparent 70%);
+      pointer-events:none;
+      z-index: 0;
+    }
+
+    section:nth-child(3)::after{
+      content:"";
+      position:absolute;
+      top: 10%;
+      left: -300px;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(96,165,250,.15), transparent 70%);
+      pointer-events:none;
+      z-index: 0;
+    }
+
+    section:nth-child(4)::after{
+      content:"";
+      position:absolute;
+      bottom: 15%;
+      right: -250px;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(167,139,250,.14), transparent 70%);
+      pointer-events:none;
+      z-index: 0;
+    }
+
+    section:nth-child(5)::after{
+      content:"";
+      position:absolute;
+      top: 40%;
+      left: -350px;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(96,165,250,.12), transparent 70%);
+      pointer-events:none;
+      z-index: 0;
+    }
+
+    section:nth-child(6)::after{
+      content:"";
+      position:absolute;
+      bottom: 20%;
+      right: -300px;
+      width: 650px;
+      height: 650px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,158,11,.10), transparent 70%);
+      pointer-events:none;
+      z-index: 0;
+    }
+
+    section:nth-child(7)::after{
+      content:"";
+      position:absolute;
+      top: 35%;
+      left: -300px;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(167,139,250,.12), transparent 70%);
+      pointer-events:none;
+      z-index: 0;
+    }
+
+    section:nth-child(8)::after{
+      content:"";
+      position:absolute;
+      bottom: 30%;
+      right: -250px;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(96,165,250,.10), transparent 70%);
+      pointer-events:none;
+      z-index: 0;
+    }
+
+    section:nth-child(9)::after{
+      content:"";
+      position:absolute;
+      top: 30%;
+      left: -280px;
+      width: 650px;
+      height: 650px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,158,11,.08), transparent 70%);
+      pointer-events:none;
+      z-index: 0;
+    }
+
+    section > .container{ position: relative; z-index: 1; }
     
     .section-title{
       font-family: "DM Sans", Inter, sans-serif;
@@ -773,15 +900,15 @@
       border: 1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.04);
       color: rgba(255,255,255,.85);
-      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+      transition: transform .4s cubic-bezier(0.34, 1.56, 0.64, 1), background .3s ease, border-color .3s ease;
       flex: 0 0 auto;
     }
 
     .faq-answer{
       max-height: 0px;
       opacity: 0;
-      transform: translateY(-6px);
-      transition: max-height .35s ease, opacity .25s ease, transform .35s ease;
+      transform: translateY(-10px);
+      transition: max-height .6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity .5s ease, transform .6s cubic-bezier(0.34, 1.56, 0.64, 1);
       overflow:hidden;
       padding: 0 16px;
       color: var(--muted);
@@ -789,7 +916,7 @@
       font-size: 14px;
     }
     .faq-item[aria-expanded="true"] .faq-answer{
-      max-height: 420px;
+      max-height: 500px;
       opacity: 1;
       transform: translateY(0);
       padding: 0 16px 16px;
@@ -901,9 +1028,19 @@
     .guarantee strong{ display:block; margin-bottom: 4px; }
     .guarantee span{ color: var(--muted); font-size: 14px; line-height:1.45; display:block; }
 
+    .btn-wrapper{
+      display: flex;
+      gap: 12px;
+      flex-direction: column;
+    }
+
+    .btn-wrapper .btn{
+      margin: 0 auto;
+    }
+
     /* CTA footer - NO ANIMATION */
     .final-cta{
-      padding: 60px 0 80px;
+      padding: 80px 0;
     }
     .final-card{
       border-radius: var(--radius-xl);
@@ -966,6 +1103,7 @@
       .grid-2{ grid-template-columns: 1fr; }
       .bullet-grid{ grid-template-columns: 1fr; }
       .final-actions{ align-items: flex-start; }
+      section{ padding: 60px 0; }
     }
   </style>
 </head>
@@ -1518,7 +1656,7 @@
               <h4>Start earning online</h4>
               <p>Begin your freelance journey with confidence.</p>
             </div>
-            <div class="alt-icon"><i class="fa-solid fa-sparkles"></i></div>
+            <div class="alt-icon"><i class="fa-solid fa-chart-line"></i></div>
           </div>
         </div>
 
@@ -1640,7 +1778,7 @@
               </div>
             </div>
 
-            <div style="margin-top: 18px; display:flex; gap: 12px; flex-wrap:wrap;">
+            <div class="btn-wrapper">
               <a class="btn btn-primary" href="#" onclick="return false;">
                 Enroll Now <i class="fa-solid fa-arrow-right"></i>
               </a>
