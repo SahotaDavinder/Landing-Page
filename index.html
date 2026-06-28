@@ -1,592 +1,1813 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Master Contract Drafting & Freelancing | 6 Months</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #4F46E5;
-            --dark: #1E2937;
-            --accent: #EC4899;
-            --light: #F8FAFC;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Master Contract Drafting & Start Freelancing</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-            line-height: 1.7;
-            color: #334155;
-            font-size: 18px;
-            overflow-x: hidden;
-        }
+  <!-- Fonts (different from default) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
 
-        h1, h2, h3 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            line-height: 1.2;
-        }
+  <style>
+    :root{
+      --bg0:#070A12;
+      --bg1:#0B1530;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.09);
+      --stroke: rgba(255,255,255,.14);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.70);
+      --muted2: rgba(255,255,255,.55);
 
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
+      --primary:#60a5fa;
+      --primary2:#a78bfa;
+      --accent:#f59e0b;
+      --good:#34d399;
+      --bad:#fb7185;
 
-        /* Scroll Animation */
-        .reveal {
-            opacity: 0;
-            transform: translateY(60px);
-            transition: all 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
-        }
+      --shadow: 0 22px 70px rgba(0,0,0,.45);
+      --shadow2: 0 18px 45px rgba(0,0,0,.35);
 
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-sm: 12px;
 
-        /* Hero */
-        .hero {
-            background: linear-gradient(135deg, #1E2937 0%, #312E81 100%);
-            color: white;
-            padding: 140px 0 100px;
-            position: relative;
-            overflow: hidden;
-        }
+      --max: 1120px;
+    }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(236,72,153,0.15) 0%, transparent 70%);
-            animation: float 25s infinite linear;
-        }
+    *{ box-sizing: border-box; }
+    html,body{ height: 100%; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
+    }
 
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
+    a{ color: inherit; text-decoration: none; }
+    button{ font-family: inherit; }
 
-        .hero-text h1 {
-            font-size: 4.2rem;
-            margin-bottom: 20px;
-        }
+    .wrap{ position: relative; z-index: 1; }
 
-        .hero-text .subtitle {
-            font-size: 1.6rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-            font-weight: 400;
-        }
+    .container{
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
 
-        .hero-visual {
-            position: relative;
-            display: flex;
-            justify-content: center;
-        }
+    .btn{
+      position: relative;
+      border: 0;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 14px 18px;
+      border-radius: 999px;
+      font-weight: 800;
+      letter-spacing: .2px;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+      user-select: none;
+      white-space: nowrap;
+    }
+    .btn-primary{
+      color: #06101f;
+      background: linear-gradient(135deg, rgba(245,158,11,1), rgba(96,165,250,1));
+      box-shadow: 0 18px 45px rgba(245,158,11,.22);
+      border: 1px solid rgba(255,255,255,.18);
+    }
+    .btn-primary:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 25px 65px rgba(245,158,11,.25);
+    }
+    .btn-ghost{
+      color: var(--text);
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: none;
+    }
+    .btn-ghost:hover{
+      transform: translateY(-2px);
+      background: rgba(255,255,255,.08);
+    }
 
-        .contract-icon {
-            font-size: 18rem;
-            opacity: 0.1;
-            animation: rotateSlow 30s linear infinite;
-        }
+    /* HERO */
+    .hero{
+      padding: 80px 0 40px;
+      position: relative;
+      overflow:hidden;
+      background:
+        radial-gradient(1200px 700px at 20% -10%, rgba(96,165,250,.25), transparent 60%),
+        radial-gradient(900px 600px at 95% 10%, rgba(167,139,250,.20), transparent 55%),
+        radial-gradient(900px 700px at 40% 90%, rgba(245,158,11,.14), transparent 55%);
+    }
 
-        .badge {
-            position: absolute;
-            background: #EC4899;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            box-shadow: 0 10px 30px rgba(236, 72, 153, 0.4);
-            animation: float 3s ease-in-out infinite;
-        }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset: 0;
+      pointer-events:none;
+      background:
+        linear-gradient(to right, rgba(255,255,255,.06) 1px, transparent 1px) 0 0 / 70px 70px,
+        linear-gradient(to bottom, rgba(255,255,255,.06) 1px, transparent 1px) 0 0 / 70px 70px;
+      opacity:.12;
+      mask-image: radial-gradient(circle at 30% 20%, black 0%, transparent 55%);
+      z-index: 0;
+    }
 
-        /* Navigation Bar */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 20px 0;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-        }
+    .hero > .container{ position: relative; z-index: 1; }
 
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.25fr .9fr;
+      gap: 28px;
+      align-items: stretch;
+    }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--primary);
-        }
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.14);
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 16px;
+      backdrop-filter: blur(10px);
+    }
+    .kicker i{
+      color: var(--good);
+    }
 
-        /* Sections */
-        section {
-            padding: 110px 0;
-        }
+    .hero h1{
+      font-family: "DM Sans", Inter, sans-serif;
+      font-size: clamp(2.1rem, 3.6vw, 3.5rem);
+      line-height: 1.05;
+      margin: 0 0 14px;
+      letter-spacing: -0.5px;
+    }
 
-        .section-title {
-            font-size: 3.2rem;
-            text-align: center;
-            margin-bottom: 70px;
-            color: var(--dark);
-        }
+    .sub{
+      font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+      color: var(--muted);
+      margin: 0 0 18px;
+      max-width: 62ch;
+    }
 
-        .section-title span {
-            color: var(--accent);
-        }
+    .hero-lead{
+      display:flex; flex-wrap: wrap;
+      gap: 12px 14px;
+      margin: 18px 0 22px;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.86);
+      box-shadow: 0 18px 45px rgba(0,0,0,.18);
+    }
+    .chip i{ color: var(--primary); }
+    .chip strong{ font-size: 14px; letter-spacing: .2px; }
+    .chip span{ color: var(--muted); font-size: 13px; }
 
-        /* Who Is This For */
-        .audience {
-            background: var(--light);
-        }
+    .hero-actions{
+      display:flex; flex-wrap: wrap;
+      gap: 12px;
+      align-items:center;
+      margin-top: 16px;
+    }
 
-        .audience-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
+    .cta-row{
+      margin-top: 22px;
+      display:flex; gap: 14px; flex-wrap: wrap;
+      align-items: center;
+    }
+    .trustline{
+      color: var(--muted2);
+      font-size: 13px;
+      display:flex; align-items:center; gap:10px;
+    }
+    .trustline i{ color: var(--primary2); }
 
-        .audience-card {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-            transition: all 0.4s ease;
-        }
+    /* RIGHT: 3D Contract Stack */
+    .right-panel{
+      position: relative;
+      padding: 18px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: var(--shadow2);
+      overflow:hidden;
+      display:flex;
+      flex-direction: column;
+      justify-content:center;
+      gap: 18px;
+    }
+    .right-panel::before{
+      content:"";
+      position:absolute;
+      top:-60px; left:-80px;
+      width: 240px; height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(96,165,250,.55), transparent 62%);
+      filter: blur(2px);
+      opacity: .9;
+    }
+    .right-panel::after{
+      content:"";
+      position:absolute;
+      bottom:-110px; right:-90px;
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(245,158,11,.45), transparent 62%);
+      opacity: .8;
+    }
 
-        .audience-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 25px 60px rgba(79, 70, 229, 0.15);
-        }
+    .contract-stage{
+      position: relative;
+      height: 250px;
+      margin: 0 0 4px;
+      perspective: 1000px;
+      z-index: 1;
+    }
 
-        .audience-card i {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    .contract-3d{
+      position:absolute;
+      inset: 0;
+      margin: auto;
+      width: 92%;
+      max-width: 340px;
+      height: 210px;
+      transform-style: preserve-3d;
+      transform: rotateX(12deg) rotateY(-18deg) translateZ(0);
+      transition: transform .25s ease;
+    }
 
-        /* Curriculum */
-        .curriculum {
-            background: white;
-        }
+    .layer{
+      position:absolute;
+      inset: 0;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.16);
+      box-shadow:
+        0 30px 70px rgba(0,0,0,.35),
+        inset 0 1px 0 rgba(255,255,255,.18);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.03));
+      overflow:hidden;
+    }
+    .layer::before{
+      content:"";
+      position:absolute;
+      inset: -2px;
+      background:
+        radial-gradient(260px 120px at 20% 15%, rgba(96,165,250,.35), transparent 55%),
+        radial-gradient(260px 120px at 80% 10%, rgba(167,139,250,.30), transparent 55%),
+        radial-gradient(260px 120px at 50% 95%, rgba(245,158,11,.18), transparent 60%);
+      opacity: .9;
+    }
 
-        .month {
-            margin-bottom: 50px;
-            border-left: 5px solid var(--primary);
-            padding-left: 40px;
-        }
+    .layer-0{ transform: translateZ(60px); }
+    .layer-1{ transform: translateZ(35px) translateY(6px); opacity: .95; }
+    .layer-2{ transform: translateZ(15px) translateY(12px); opacity: .85; }
+    .layer-3{ transform: translateZ(0px) translateY(18px); opacity: .75; }
 
-        .month h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--dark);
-        }
+    .doc-header{
+      position:absolute;
+      top: 16px; left: 16px; right: 16px;
+      display:flex; align-items:center; justify-content: space-between;
+      gap: 10px;
+      z-index: 2;
+    }
+    .doc-bullets{
+      display:flex; gap: 8px;
+    }
+    .dot{ width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,.20); border: 1px solid rgba(255,255,255,.18); }
+    .dot:nth-child(1){ background: rgba(96,165,250,.35); }
+    .dot:nth-child(2){ background: rgba(167,139,250,.35); }
+    .dot:nth-child(3){ background: rgba(245,158,11,.35); }
 
-        .curriculum-list li {
-            font-size: 1.2rem;
-            padding: 12px 0;
-            border-bottom: 1px solid #e2e8f0;
-        }
+    .doc-badge{
+      display:inline-flex; align-items:center; gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      font-size: 12px;
+      color: rgba(255,255,255,.82);
+      white-space: nowrap;
+    }
+    .doc-badge i{ color: var(--accent); }
 
-        /* Freelancing */
-        .freelance {
-            background: linear-gradient(135deg, #4F46E5, #7C3AED);
-            color: white;
-        }
+    .doc-lines{
+      position:absolute;
+      left: 16px; right: 16px; top: 60px; bottom: 16px;
+      z-index: 2;
+      display:flex; flex-direction: column; gap: 10px;
+    }
+    .line{
+      height: 10px;
+      border-radius: 8px;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.10);
+    }
+    .line:nth-child(1){ width: 92%; }
+    .line:nth-child(2){ width: 78%; }
+    .line:nth-child(3){ width: 88%; }
+    .line:nth-child(4){ width: 65%; }
+    .line:nth-child(5){ width: 84%; }
+    .line:nth-child(6){ width: 58%; }
+    .line:nth-child(7){ width: 72%; }
+    .stamp{
+      position:absolute;
+      right: 18px;
+      bottom: 14px;
+      width: 88px;
+      height: 88px;
+      border-radius: 22px;
+      border: 1px dashed rgba(245,158,11,.55);
+      background: rgba(245,158,11,.07);
+      transform: rotate(10deg) translateZ(10px);
+      display:grid;
+      place-items:center;
+      z-index: 2;
+    }
+    .stamp i{
+      font-size: 28px;
+      color: rgba(245,158,11,.9);
+    }
 
-        .freelance .section-title {
-            color: white;
-        }
+    .right-cta-block{
+      z-index: 2;
+      display:grid;
+      gap: 10px;
+      padding-top: 8px;
+    }
+    .right-cta-title{
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: .2px;
+      color: rgba(255,255,255,.88);
+    }
+    .right-cta-sub{
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.4;
+    }
 
-        /* Benefits */
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 40px;
-        }
+    /* Sections */
+    section{ 
+      padding: 56px 0; 
+      background:
+        radial-gradient(1000px 600px at 10% 50%, rgba(96,165,250,.08), transparent 60%),
+        radial-gradient(900px 500px at 90% 50%, rgba(167,139,250,.08), transparent 55%);
+    }
+    
+    .section-title{
+      font-family: "DM Sans", Inter, sans-serif;
+      font-size: clamp(1.6rem, 2.2vw, 2.3rem);
+      letter-spacing: -.3px;
+      margin: 0 0 10px;
+    }
+    .section-sub{
+      color: var(--muted);
+      margin: 0 0 24px;
+      font-size: 1.06rem;
+      max-width: 70ch;
+    }
 
-        .benefit {
-            display: flex;
-            gap: 25px;
-        }
+    /* Reveal */
+    [data-reveal]{
+      opacity: 0;
+      transform: translateY(18px) scale(.99);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+    [data-reveal].is-visible{
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
 
-        .benefit-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.2rem;
-            color: white;
-            flex-shrink: 0;
-        }
+    @media (prefers-reduced-motion: reduce){
+      [data-reveal]{ transition:none; opacity:1; transform:none; }
+      .btn, .layer, .contract-3d{ transition:none !important; }
+    }
 
-        /* Pricing */
-        .pricing {
-            background: var(--light);
-        }
+    /* Audience block */
+    .audience{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+    .soft-panel{
+      background: rgba(255,255,255,.045);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius-xl);
+      padding: 22px;
+      box-shadow: 0 18px 45px rgba(0,0,0,.18);
+      position: relative;
+      overflow:hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .soft-panel::before{
+      content:"";
+      position:absolute; inset: -2px;
+      background:
+        radial-gradient(280px 140px at 18% 10%, rgba(96,165,250,.18), transparent 60%),
+        radial-gradient(280px 140px at 95% 20%, rgba(167,139,250,.14), transparent 62%);
+      opacity: .9;
+      pointer-events:none;
+    }
+    .soft-panel > *{ position: relative; z-index:1; }
 
-        .pricing-card {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 30px;
-            padding: 60px 50px;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.12);
-            text-align: center;
-            border: 4px solid var(--accent);
-        }
+    .list{
+      margin: 14px 0 0;
+      padding: 0;
+      list-style:none;
+      display:grid;
+      gap: 12px;
+    }
+    .li{
+      display:flex; align-items:flex-start; gap: 12px;
+      padding: 12px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+    }
+    .li i{
+      width: 34px; height: 34px; border-radius: 12px;
+      display:grid; place-items:center;
+      background: rgba(96,165,250,.16);
+      color: rgba(96,165,250,.95);
+      border: 1px solid rgba(96,165,250,.22);
+      flex: 0 0 auto;
+      margin-top: 2px;
+    }
+    .li strong{ font-size: 16px; }
+    .li span{ display:block; color: var(--muted); margin-top: 4px; font-size: 14px; line-height:1.35; }
 
-        .pricing-card .original {
-            text-decoration: line-through;
-            font-size: 1.4rem;
-            color: #64748b;
-        }
+    /* Curriculum timeline */
+    .timeline{
+      display:grid;
+      gap: 14px;
+    }
+    .timeline-item{
+      display:grid;
+      grid-template-columns: 44px 1fr;
+      gap: 14px;
+      padding: 16px;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      position: relative;
+      overflow:hidden;
+    }
+    .timeline-item::after{
+      content:"";
+      position:absolute;
+      inset: -2px;
+      background: radial-gradient(260px 120px at 10% 0%, rgba(96,165,250,.13), transparent 55%);
+      opacity: .6;
+      pointer-events:none;
+    }
+    .timeline-item > *{ position: relative; z-index:1; }
+    .t-dot{
+      width: 44px; height: 44px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.14);
+      display:grid; place-items:center;
+      margin-top: 2px;
+    }
+    .t-dot i{ color: var(--primary); font-size: 18px; }
+    .timeline-item h4{
+      margin: 0 0 8px;
+      font-size: 18px;
+      letter-spacing: .1px;
+    }
+    .bullet-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 18px;
+      margin-top: 10px;
+    }
+    .bullet{
+      display:flex; align-items:flex-start; gap: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.35;
+    }
+    .bullet i{ color: var(--accent); margin-top: 2px; }
 
-        .pricing-card .price {
-            font-size: 5.5rem;
-            font-weight: 800;
-            color: var(--dark);
-            margin: 15px 0;
-        }
+    /* Two-column feature layout */
+    .two-col{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 22px;
+      align-items: stretch;
+    }
 
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--accent), #f43f5e);
-            color: white;
-            padding: 22px 60px;
-            font-size: 1.4rem;
-            font-weight: 600;
-            border-radius: 60px;
-            text-decoration: none;
-            margin-top: 30px;
-            box-shadow: 0 15px 40px rgba(236, 72, 153, 0.4);
-            transition: all 0.4s ease;
-        }
+    .info-block{
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius-xl);
+      padding: 22px;
+      position: relative;
+      overflow:hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .info-block::before{
+      content:"";
+      position:absolute; inset: -2px;
+      background:
+        radial-gradient(300px 160px at 15% 10%, rgba(245,158,11,.16), transparent 60%),
+        radial-gradient(320px 180px at 90% 0%, rgba(167,139,250,.14), transparent 65%);
+      opacity: .8;
+      pointer-events:none;
+    }
+    .info-block > *{ position: relative; z-index:1; }
 
-        .cta-button:hover {
-            transform: scale(1.08);
-            box-shadow: 0 20px 50px rgba(236, 72, 153, 0.5);
-        }
+    .steps{
+      display:grid; gap: 12px; margin-top: 10px;
+    }
+    .step{
+      display:flex; gap: 12px; align-items:flex-start;
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.10);
+    }
+    .step-num{
+      width: 36px; height: 36px;
+      border-radius: 14px;
+      display:grid; place-items:center;
+      background: rgba(96,165,250,.14);
+      border: 1px solid rgba(96,165,250,.22);
+      color: rgba(96,165,250,.95);
+      font-weight: 900;
+      flex: 0 0 auto;
+    }
+    .step h4{ margin: 0 0 4px; font-size: 16px; }
+    .step p{ margin:0; color: var(--muted); font-size: 14px; line-height:1.4; }
 
-        /* FAQ */
-        .faq-item {
-            background: white;
-            margin-bottom: 20px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            overflow: hidden;
-        }
+    /* Stats */
+    .stats{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .stat{
+      padding: 18px;
+      border-radius: var(--radius-xl);
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 16px 40px rgba(0,0,0,.2);
+      position:relative;
+      overflow:hidden;
+    }
+    .stat::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(260px 120px at 15% 0%, rgba(96,165,250,.16), transparent 60%);
+      opacity:.7;
+      pointer-events:none;
+    }
+    .stat > *{ position:relative; z-index:1; }
+    .stat .num{
+      font-family: "DM Sans", Inter, sans-serif;
+      font-size: clamp(1.8rem, 2.6vw, 2.6rem);
+      font-weight: 900;
+      letter-spacing: -.2px;
+      margin-bottom: 6px;
+    }
+    .stat .label{
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.35;
+      font-weight: 600;
+    }
 
-        .faq-question {
-            padding: 28px 35px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--dark);
-        }
+    /* Cards but not all-in-box look */
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .grid-2{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
 
-        .faq-answer {
-            padding: 0 35px;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            color: #475569;
-            font-size: 1.1rem;
-        }
+    .mini-card{
+      padding: 18px;
+      border-radius: var(--radius-xl);
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.12);
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+      position: relative;
+      overflow:hidden;
+    }
+    .mini-card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(280px 120px at 10% 0%, rgba(167,139,250,.14), transparent 58%);
+      opacity:.75;
+      pointer-events:none;
+    }
+    .mini-card > *{ position: relative; z-index:1; }
 
-        .faq-item.active .faq-answer {
-            padding: 0 35px 35px;
-            max-height: 300px;
-        }
+    .mini-card:hover{
+      transform: translateY(-4px);
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.18);
+    }
 
-        .faq-question i {
-            transition: transform 0.4s ease;
-        }
+    .mini-head{
+      display:flex; align-items:center; gap: 12px;
+      margin-bottom: 10px;
+    }
+    .mini-head i{
+      width: 44px; height: 44px;
+      border-radius: 16px;
+      display:grid; place-items:center;
+      background: rgba(245,158,11,.12);
+      border: 1px solid rgba(245,158,11,.22);
+      color: rgba(245,158,11,.95);
+      flex: 0 0 auto;
+    }
+    .mini-head strong{
+      font-size: 16px;
+      letter-spacing: .1px;
+    }
+    .mini-card p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
 
-        .faq-item.active .faq-question i {
-            transform: rotate(180deg);
-        }
+    /* Differentiators: alternating */
+    .alt-list{
+      display:grid;
+      gap: 12px;
+    }
+    .alt-item{
+      display:grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      padding: 16px;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      align-items:center;
+      position:relative;
+      overflow:hidden;
+    }
+    .alt-item::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background: radial-gradient(280px 140px at 0% 0%, rgba(96,165,250,.14), transparent 60%);
+      opacity:.6;
+      pointer-events:none;
+    }
+    .alt-item > *{ position:relative; z-index:1; }
+    .alt-item h4{
+      margin:0 0 6px;
+      font-size: 16px;
+    }
+    .alt-item p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+      max-width: 72ch;
+    }
+    .alt-icon{
+      width: 52px; height: 52px;
+      border-radius: 20px;
+      display:grid; place-items:center;
+      background: rgba(96,165,250,.12);
+      border: 1px solid rgba(96,165,250,.22);
+      color: rgba(96,165,250,.95);
+      flex: 0 0 auto;
+    }
 
-        /* Footer CTA */
-        .final-cta {
-            background: linear-gradient(135deg, #1E2937, #312E81);
-            color: white;
-            text-align: center;
-            padding: 140px 20px;
-        }
+    /* FAQ - FIXED animation (closed by default, smooth open/close) */
+    .faq{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    .faq-help{
+      padding: 20px;
+      border-radius: var(--radius-xl);
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.12);
+      display: flex;
+      flex-direction: column;
+    }
+    .faq-help h3{
+      margin:0 0 10px;
+      font-family: "DM Sans", Inter, sans-serif;
+      letter-spacing: -.2px;
+    }
+    .faq-help p{
+      margin:0 0 14px;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+    .faq-list{
+      display:grid;
+      gap: 12px;
+      align-content: start;
+    }
+    .faq-item{
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      overflow:hidden;
+    }
+    .faq-q{
+      width: 100%;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 16px;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      color: var(--text);
+      text-align:left;
+      font-weight: 800;
+      letter-spacing: .1px;
+      font-size: 15px;
+    }
+    .faq-q:focus-visible{
+      outline: 2px solid rgba(96,165,250,.7);
+      outline-offset: -2px;
+    }
 
-        .final-cta h2 {
-            font-size: 3.5rem;
-            margin-bottom: 25px;
-        }
+    .faq-q i{
+      width: 40px; height: 40px;
+      border-radius: 16px;
+      display:grid; place-items:center;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      color: rgba(255,255,255,.85);
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+      flex: 0 0 auto;
+    }
 
-        @media (max-width: 968px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .hero-text h1 {
-                font-size: 3.2rem;
-            }
-        }
-    </style>
+    .faq-answer{
+      max-height: 0px;
+      opacity: 0;
+      transform: translateY(-6px);
+      transition: max-height .35s ease, opacity .25s ease, transform .35s ease;
+      overflow:hidden;
+      padding: 0 16px;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+    .faq-item[aria-expanded="true"] .faq-answer{
+      max-height: 420px;
+      opacity: 1;
+      transform: translateY(0);
+      padding: 0 16px 16px;
+    }
+    .faq-item[aria-expanded="true"] .faq-q i{
+      transform: rotate(180deg);
+      background: rgba(96,165,250,.12);
+      border-color: rgba(96,165,250,.25);
+      color: rgba(96,165,250,.95);
+    }
+
+    /* Pricing */
+    .pricing{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    .price-box{
+      padding: 24px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: var(--shadow2);
+      position:relative;
+      overflow:hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .price-box::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(480px 220px at 10% 0%, rgba(245,158,11,.22), transparent 60%),
+        radial-gradient(500px 240px at 90% 10%, rgba(96,165,250,.18), transparent 60%);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .price-box > *{ position: relative; z-index:1; }
+
+    .price-top{
+      display:flex;
+      gap: 12px;
+      align-items:flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .price-top h3{
+      margin: 0 0 6px;
+      font-family:"DM Sans", Inter, sans-serif;
+      letter-spacing: -.2px;
+      font-size: 22px;
+    }
+    .price-top p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+      max-width: 60ch;
+    }
+    .price{
+      margin-top: 16px;
+      display:flex;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .strike{
+      color: rgba(255,255,255,.55);
+      text-decoration: line-through;
+      font-size: 20px;
+      font-weight: 800;
+    }
+    .now{
+      font-family:"DM Sans", Inter, sans-serif;
+      font-size: clamp(2.2rem, 3vw, 3rem);
+      font-weight: 900;
+      letter-spacing: -.4px;
+      background: linear-gradient(135deg, rgba(245,158,11,1), rgba(96,165,250,1));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .price-note{
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    .guarantee{
+      margin-top: 18px;
+      display:flex; gap: 12px;
+      align-items:flex-start;
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    .guarantee i{
+      color: rgba(52,211,153,.95);
+      background: rgba(52,211,153,.12);
+      border: 1px solid rgba(52,211,153,.22);
+      width: 40px; height: 40px;
+      border-radius: 16px;
+      display:grid; place-items:center;
+      flex: 0 0 auto;
+      margin-top: 2px;
+    }
+    .guarantee strong{ display:block; margin-bottom: 4px; }
+    .guarantee span{ color: var(--muted); font-size: 14px; line-height:1.45; display:block; }
+
+    /* CTA footer - NO ANIMATION */
+    .final-cta{
+      padding: 60px 0 80px;
+    }
+    .final-card{
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255,255,255,.14);
+      background:
+        radial-gradient(900px 320px at 15% 0%, rgba(96,165,250,.24), transparent 60%),
+        radial-gradient(900px 320px at 85% 20%, rgba(167,139,250,.22), transparent 60%),
+        radial-gradient(700px 280px at 50% 100%, rgba(245,158,11,.18), transparent 55%),
+        rgba(255,255,255,.03);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .final-grid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 18px;
+      align-items:center;
+      position:relative;
+      z-index: 1;
+    }
+
+    .final-title{
+      margin:0 0 10px;
+      font-family:"DM Sans", Inter, sans-serif;
+      font-size: clamp(1.9rem, 2.6vw, 2.6rem);
+      letter-spacing: -.35px;
+    }
+    .final-text{
+      margin:0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+    .final-actions{
+      display:flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-end;
+    }
+
+    /* Scroll progress */
+    .progress{
+      position: fixed;
+      top:0; left:0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, rgba(245,158,11,1), rgba(96,165,250,1));
+      z-index: 100;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .audience, .two-col, .faq, .pricing, .final-grid{ grid-template-columns: 1fr; }
+      .stats{ grid-template-columns: repeat(2, 1fr); }
+      .grid-3{ grid-template-columns: 1fr; }
+      .grid-2{ grid-template-columns: 1fr; }
+      .bullet-grid{ grid-template-columns: 1fr; }
+      .final-actions{ align-items: flex-start; }
+    }
+  </style>
 </head>
+
 <body>
+  <div class="progress" id="progress"></div>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="container nav-content">
-            <div class="logo">ContractPro</div>
-            <a href="#pricing" class="cta-button" style="padding: 12px 35px; font-size: 1.1rem;">Enroll Now - ₹24,999</a>
-        </div>
-    </nav>
+  <div class="wrap">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div>
+          <div class="kicker" data-reveal>
+            <i class="fa-solid fa-award"></i>
+            Become the lawyer clients trust for high-value contracts.
+          </div>
 
-    <!-- Hero -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text reveal">
-                    <h1>Master Contract Drafting & Start Freelancing in Just <span style="color:#EC4899;">6 Months</span></h1>
-                    <p class="subtitle">Draft professional commercial agreements with confidence.<br>Build a profitable freelance legal career.</p>
-                    <p style="font-size: 1.4rem; margin: 30px 0; opacity: 0.9;">
-                        Learn from experienced corporate lawyers and turn your legal knowledge into a high-income skill.
-                    </p>
-                    <a href="#pricing" class="cta-button">Enroll Now at ₹24,999</a>
-                    <p style="margin-top: 25px; font-size: 1.1rem;">
-                        <strong>54+ Live Sessions</strong> • <strong>24+ Real Agreements</strong> • <strong>Lifetime Access</strong>
-                    </p>
-                </div>
-                <div class="hero-visual">
-                    <i class="fas fa-file-contract contract-icon"></i>
-                    <div class="badge" style="top: 20%; left: 15%;">24+ Contracts</div>
-                    <div class="badge" style="bottom: 25%; right: 10%; animation-delay: 1.5s;">₹24,999 Only</div>
-                </div>
+          <h1 data-reveal>Master Contract Drafting &amp; Start Freelancing in Just 6 Months</h1>
+
+          <p class="sub" data-reveal>
+            Draft Professional Contracts. Build a Freelance Career. Learn from Industry Experts.
+          </p>
+
+          <div class="hero-lead" data-reveal>
+            <div class="chip">
+              <i class="fa-solid fa-calendar-check"></i>
+              <div>
+                <strong>54+ Live Sessions</strong>
+                <span>interactive learning</span>
+              </div>
             </div>
+            <div class="chip">
+              <i class="fa-solid fa-file-contract"></i>
+              <div>
+                <strong>Draft 24+ Real-World Agreements</strong>
+                <span>hands-on practice</span>
+              </div>
+            </div>
+            <div class="chip">
+              <i class="fa-solid fa-comments"></i>
+              <div>
+                <strong>Personal Feedback</strong>
+                <span>on your assignments</span>
+              </div>
+            </div>
+            <div class="chip">
+              <i class="fa-solid fa-briefcase"></i>
+              <div>
+                <strong>Freelancing &amp; Upwork Training</strong>
+                <span>start earning</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cta-row" data-reveal>
+            <a class="btn btn-primary" href="#pricing">
+              Enroll Now <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a class="btn btn-ghost" href="#learn">
+              Explore Curriculum <i class="fa-solid fa-book-open"></i>
+            </a>
+            <div class="trustline">
+              <i class="fa-solid fa-shield-halved"></i>
+              Lifetime access to recordings • Money-back guarantee
+            </div>
+          </div>
         </div>
+
+        <aside class="right-panel" data-reveal>
+          <div class="contract-stage" aria-hidden="true">
+            <div class="contract-3d" id="tiltCard">
+              <div class="layer layer-0">
+                <div class="doc-header">
+                  <div class="doc-bullets">
+                    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                  </div>
+                  <div class="doc-badge"><i class="fa-solid fa-signature"></i> Master Drafting</div>
+                </div>
+                <div class="doc-lines">
+                  <div class="line"></div><div class="line"></div><div class="line"></div>
+                  <div class="line"></div><div class="line"></div><div class="line"></div>
+                  <div class="line"></div>
+                </div>
+                <div class="stamp"><i class="fa-solid fa-gavel"></i></div>
+              </div>
+              <div class="layer layer-1"></div>
+              <div class="layer layer-2"></div>
+              <div class="layer layer-3"></div>
+            </div>
+          </div>
+
+          <div class="right-cta-block">
+            <div class="right-cta-title">What makes this course different?</div>
+            <div class="right-cta-sub">
+              Most contract drafting courses teach only drafting. This one helps you
+              draft confidently <b>and</b> turn your skills into income through freelancing.
+            </div>
+            <div class="right-cta-sub" style="display:flex; gap:10px; flex-wrap:wrap;">
+              <span style="display:inline-flex; align-items:center; gap:10px; padding:10px 12px; border-radius:16px; border:1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04);">
+                <i class="fa-solid fa-infinity" style="color: var(--accent)"></i> Lifetime Access to Recordings
+              </span>
+              <span style="display:inline-flex; align-items:center; gap:10px; padding:10px 12px; border-radius:16px; border:1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04);">
+                <i class="fa-solid fa-money-bill-wave" style="color: var(--good)"></i> Money-Back Guarantee
+              </span>
+            </div>
+          </div>
+        </aside>
+      </div>
     </section>
 
-    <!-- Audience -->
-    <section class="audience">
-        <div class="container">
-            <h2 class="section-title reveal">Is This Course For You?</h2>
-            <div class="audience-grid">
-                <div class="audience-card reveal">
-                    <i class="fas fa-user-graduate"></i>
-                    <h3>Law Students</h3>
-                    <p>Want practical, job-ready contract drafting skills that go beyond theory.</p>
-                </div>
-                <div class="audience-card reveal">
-                    <i class="fas fa-briefcase"></i>
-                    <h3>Young Lawyers</h3>
-                    <p>Looking to increase income through freelancing and high-value contract work.</p>
-                </div>
-                <div class="audience-card reveal">
-                    <i class="fas fa-laptop"></i>
-                    <h3>Freelance Aspirants</h3>
-                    <p>Want to build a successful legal freelancing career on Upwork and LinkedIn.</p>
-                </div>
-            </div>
+    <!-- STATS STRIP -->
+    <section style="padding-top:0;">
+      <div class="container">
+        <div class="stats" data-reveal>
+          <div class="stat">
+            <div class="num"><span class="count" data-count="54">0</span>+</div>
+            <div class="label">Live Sessions</div>
+          </div>
+          <div class="stat">
+            <div class="num"><span class="count" data-count="24">0</span>+</div>
+            <div class="label">Real-World Agreements Drafted</div>
+          </div>
+          <div class="stat">
+            <div class="num">6 Months</div>
+            <div class="label">Expert-level online learning</div>
+          </div>
+          <div class="stat">
+            <div class="num">Lifetime</div>
+            <div class="label">Access to recordings + materials</div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Curriculum -->
-    <section class="curriculum">
-        <div class="container">
-            <h2 class="section-title reveal">What You Will Master</h2>
-            
-            <div class="month reveal">
-                <h3>Months 1–2: Foundation</h3>
-                <ul class="curriculum-list">
-                    <li>Essential Contract Clauses & Their Importance</li>
-                    <li>Boilerplate Provisions and Legal Language</li>
-                    <li>Negotiation Techniques and Red Flag Identification</li>
-                    <li>Contract Review, Redrafting & Execution Formalities</li>
-                    <li>Best Practices in Professional Drafting</li>
-                </ul>
-            </div>
+    <!-- AUDIENCE -->
+    <section id="audience">
+      <div class="container">
+        <h2 class="section-title" data-reveal>Is This Course for You?</h2>
+        <p class="section-sub" data-reveal>
+          Join our <b>6-Month Expert-Level Online Course on Mastering Contract Drafting &amp; Freelancing</b>
+          and learn how to draft <b>24+ commercial agreements</b>, negotiate confidently, and start earning through
+          platforms like <b>Upwork</b> and <b>LinkedIn</b>.
+        </p>
 
-            <div class="month reveal">
-                <h3>Months 3–6: Advanced Commercial Drafting</h3>
-                <ul class="curriculum-list">
-                    <li>NDAs, Employment Agreements, SaaS Contracts</li>
-                    <li>Shareholders’ & Joint Venture Agreements</li>
-                    <li>Software Licensing, Trademark & Copyright Agreements</li>
-                    <li>Loan Agreements, Privacy Policies, Website Terms</li>
-                    <li>Real Estate Contracts & International Commercial Agreements</li>
-                </ul>
+        <div class="audience">
+          <div class="soft-panel" data-reveal>
+            <h3 style="margin:0 0 10px; font-family:'DM Sans', Inter; letter-spacing:-.2px; font-size: 20px;">
+              This course is perfect if you are:
+            </h3>
+
+            <ul class="list">
+              <li class="li">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <div>
+                  <strong>Law students</strong>
+                  <span>Want practical legal skills beyond textbooks.</span>
+                </div>
+              </li>
+              <li class="li">
+                <i class="fa-solid fa-user-graduate"></i>
+                <div>
+                  <strong>Fresh graduates</strong>
+                  <span>Preparing for law firm interviews.</span>
+                </div>
+              </li>
+              <li class="li">
+                <i class="fa-solid fa-scale-balanced"></i>
+                <div>
+                  <strong>Young lawyers</strong>
+                  <span>Looking to increase their income with contract drafting.</span>
+                </div>
+              </li>
+              <li class="li">
+                <i class="fa-solid fa-briefcase"></i>
+                <div>
+                  <strong>Professionals</strong>
+                  <span>Interested in freelance legal drafting.</span>
+                </div>
+              </li>
+              <li class="li">
+                <i class="fa-solid fa-rocket"></i>
+                <div>
+                  <strong>Anyone who wants practical contract drafting expertise</strong>
+                  <span>Build real skills you can use immediately.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="soft-panel" data-reveal>
+            <h3 style="margin:0 0 10px; font-family:'DM Sans', Inter; letter-spacing:-.2px; font-size: 20px;">
+              Quick Benefits Snapshot
+            </h3>
+            <div class="list" style="gap:10px; margin-top: 6px;">
+              <div class="li" style="padding:14px;">
+                <i class="fa-solid fa-chalkboard-teacher" style="background: rgba(167,139,250,.14); border-color: rgba(167,139,250,.22); color: rgba(167,139,250,.95);"></i>
+                <div>
+                  <strong>Industry Expert Faculty</strong>
+                  <span>Learn directly from experienced lawyers and corporate professionals.</span>
+                </div>
+              </div>
+              <div class="li" style="padding:14px;">
+                <i class="fa-solid fa-video" style="background: rgba(96,165,250,.14); border-color: rgba(96,165,250,.22); color: rgba(96,165,250,.95);"></i>
+                <div>
+                  <strong>Live Interactive Sessions</strong>
+                  <span>Ask questions, participate, and get live guidance.</span>
+                </div>
+              </div>
+              <div class="li" style="padding:14px;">
+                <i class="fa-solid fa-folder-open" style="background: rgba(245,158,11,.14); border-color: rgba(245,158,11,.22); color: rgba(245,158,11,.95);"></i>
+                <div>
+                  <strong>Lifetime Access</strong>
+                  <span>Revisit recordings whenever you need.</span>
+                </div>
+              </div>
+              <div class="li" style="padding:14px;">
+                <i class="fa-solid fa-handshake" style="background: rgba(52,211,153,.14); border-color: rgba(52,211,153,.22); color: rgba(52,211,153,.95);"></i>
+                <div>
+                  <strong>Career Support</strong>
+                  <span>Freelancing guidance, networking sessions, and mentorship.</span>
+                </div>
+              </div>
+              <div class="li" style="padding:14px;">
+                <i class="fa-solid fa-shield-heart" style="background: rgba(251,113,133,.14); border-color: rgba(251,113,133,.22); color: rgba(251,113,133,.95);"></i>
+                <div>
+                  <strong>Money-Back Guarantee</strong>
+                  <span>Complete the course sincerely. If you don't find value, you're eligible for a full refund as per policy.</span>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Freelancing -->
-    <section class="freelance">
-        <div class="container">
-            <h2 class="section-title reveal">Learn Freelancing Alongside Drafting</h2>
-            <p style="text-align: center; font-size: 1.4rem; max-width: 800px; margin: 0 auto 60px; opacity: 0.9;">
-                This is not just another drafting course. You will learn how to actually earn money using these skills.
+    <!-- LEARN -->
+    <section id="learn">
+      <div class="container">
+        <h2 class="section-title" data-reveal>What You'll Learn</h2>
+        <p class="section-sub" data-reveal>
+          Learn the foundation first, then move into advanced commercial drafting with real agreements and guided practice.
+        </p>
+
+        <div class="timeline">
+          <div class="timeline-item" data-reveal>
+            <div class="t-dot"><i class="fa-solid fa-layer-group"></i></div>
+            <div>
+              <h4>Foundation (Months 1–2)</h4>
+              <div class="bullet-grid">
+                <div class="bullet"><i class="fa-solid fa-check"></i> Essential contract clauses</div>
+                <div class="bullet"><i class="fa-solid fa-check"></i> Boilerplate provisions</div>
+                <div class="bullet"><i class="fa-solid fa-check"></i> Negotiation basics</div>
+                <div class="bullet"><i class="fa-solid fa-check"></i> Execution formalities</div>
+                <div class="bullet"><i class="fa-solid fa-check"></i> Contract review and redrafting</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-reveal style="background: rgba(255,255,255,.045);">
+            <div class="t-dot"><i class="fa-solid fa-briefcase-medical"></i></div>
+            <div>
+              <h4>Advanced Drafting (Months 3–6)</h4>
+              <div style="color: var(--muted); font-size: 14px; line-height:1.55; margin-bottom: 10px;">
+                Draft real commercial agreements including:
+              </div>
+              <div class="bullet-grid">
+                <div class="bullet"><i class="fa-solid fa-file-signature"></i> Non-Disclosure Agreements (NDA)</div>
+                <div class="bullet"><i class="fa-solid fa-file-signature"></i> Employment Agreements</div>
+                <div class="bullet"><i class="fa-solid fa-file-signature"></i> Software Licensing Agreements</div>
+                <div class="bullet"><i class="fa-solid fa-file-signature"></i> Shareholders Agreements</div>
+                <div class="bullet"><i class="fa-solid fa-file-signature"></i> Joint Venture Agreements</div>
+                <div class="bullet"><i class="fa-solid fa-file-signature"></i> Loan Agreements</div>
+                <div class="bullet"><i class="fa-solid fa-file-signature"></i> Trademark Licensing Agreements</div>
+                <div class="bullet"><i class="fa-solid fa-file-signature"></i> Copyright Agreements</div>
+                <div class="bullet"><i class="fa-solid fa-file-signature"></i> Privacy Policies</div>
+                <div class="bullet"><i class="fa-solid fa-file-signature"></i> Website Terms &amp; Conditions</div>
+                <div class="bullet"><i class="fa-solid fa-file-signature"></i> SaaS Agreements</div>
+                <div class="bullet"><i class="fa-solid fa-file-signature"></i> Real Estate Agreements</div>
+                <div class="bullet"><i class="fa-solid fa-file-signature"></i> Commercial Business Contracts</div>
+                <div class="bullet"><i class="fa-solid fa-file-signature"></i> International Agreements</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FREELANCING + PRACTICAL -->
+    <section id="freelance">
+      <div class="container">
+        <h2 class="section-title" data-reveal>Learn Freelancing Alongside Contract Drafting</h2>
+        <p class="section-sub" data-reveal>
+          Unlike ordinary drafting courses, this program also teaches you how to earn from your skills.
+        </p>
+
+        <div class="two-col">
+          <div class="info-block" data-reveal>
+            <h3 style="margin:0 0 10px; font-family:'DM Sans', Inter; letter-spacing:-.2px; font-size: 20px;">
+              You'll learn:
+            </h3>
+            <div class="steps">
+              <div class="step">
+                <div class="step-num">1</div>
+                <div>
+                  <h4>Setting up a professional Upwork profile</h4>
+                  <p>Position your drafting skills clearly to attract high-value clients.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">2</div>
+                <div>
+                  <h4>Building a winning portfolio</h4>
+                  <p>Create a portfolio that demonstrates real contract drafting outcomes.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">3</div>
+                <div>
+                  <h4>Writing client proposals</h4>
+                  <p>Learn how to structure proposals for trust, clarity, and conversions.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">4</div>
+                <div>
+                  <h4>Pricing legal services</h4>
+                  <p>Set fair pricing for your expertise—competitively and confidently.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">5</div>
+                <div>
+                  <h4>Getting your first freelance client</h4>
+                  <p>Step-by-step guidance to begin your freelancing journey.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">6</div>
+                <div>
+                  <h4>Networking through LinkedIn</h4>
+                  <p>Build professional connections and turn them into opportunities.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-block" data-reveal>
+            <h3 style="margin:0 0 10px; font-family:'DM Sans', Inter; letter-spacing:-.2px; font-size: 20px;">
+              Practical Learning
+            </h3>
+            <p style="margin:0 0 14px; color: var(--muted); font-size: 15px; line-height:1.65;">
+              This isn't just theory. Throughout the course you'll:
             </p>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
-                <div class="reveal" style="background:rgba(255,255,255,0.1); padding:35px; border-radius:20px;">
-                    <h3>Upwork Profile Optimization</h3>
-                    <p>Build a profile that attracts high-paying clients consistently.</p>
-                </div>
-                <div class="reveal" style="background:rgba(255,255,255,0.1); padding:35px; border-radius:20px;">
-                    <h3>Winning Proposal Writing</h3>
-                    <p>Learn how to write proposals that get accepted on the first try.</p>
-                </div>
-                <div class="reveal" style="background:rgba(255,255,255,0.1); padding:35px; border-radius:20px;">
-                    <h3>Pricing & Portfolio Building</h3>
-                    <p>Price your services correctly and create a strong portfolio.</p>
-                </div>
-                <div class="reveal" style="background:rgba(255,255,255,0.1); padding:35px; border-radius:20px;">
-                    <h3>LinkedIn Networking Strategy</h3>
-                    <p>Get direct clients through strategic networking.</p>
-                </div>
+
+            <div class="bullet-grid" style="grid-template-columns: 1fr;">
+              <div class="bullet"><i class="fa-solid fa-pen-nib"></i> Draft multiple contracts</div>
+              <div class="bullet"><i class="fa-solid fa-pen-nib"></i> Complete practical assignments</div>
+              <div class="bullet"><i class="fa-solid fa-user-check"></i> Receive personalized faculty feedback</div>
+              <div class="bullet"><i class="fa-solid fa-clipboard-list"></i> Build a professional drafting portfolio</div>
+              <div class="bullet"><i class="fa-solid fa-file-lines"></i> Improve your CV and cover letter</div>
             </div>
+
+            <div style="margin-top: 16px; padding: 14px; border-radius: 18px; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.03);">
+              <div style="font-weight: 900; margin-bottom: 8px; display:flex; align-items:center; gap:10px;">
+                <i class="fa-solid fa-lightbulb" style="color: var(--accent)"></i>
+                Outcome-driven learning
+              </div>
+              <div style="color: var(--muted); font-size: 14px; line-height:1.55;">
+                You'll learn negotiation and contract drafting in parallel—so you can communicate like a pro and draft like one.
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Benefits -->
-    <section>
-        <div class="container">
-            <h2 class="section-title reveal">Why Students Love This Program</h2>
-            <div class="benefits-grid">
-                <div class="benefit reveal">
-                    <div class="benefit-icon"><i class="fas fa-user-tie"></i></div>
-                    <div>
-                        <h3>Learn from Industry Experts</h3>
-                        <p>Faculty with 10+ years of experience in top law firms and corporate legal departments.</p>
-                    </div>
-                </div>
-                <div class="benefit reveal">
-                    <div class="benefit-icon"><i class="fas fa-comments"></i></div>
-                    <div>
-                        <h3>Personalized Feedback</h3>
-                        <p>Every assignment is reviewed personally by faculty with detailed feedback.</p>
-                    </div>
-                </div>
-                <div class="benefit reveal">
-                    <div class="benefit-icon"><i class="fas fa-infinity"></i></div>
-                    <div>
-                        <h3>Lifetime Access + Recordings</h3>
-                        <p>Access all recordings, materials, and updates for lifetime.</p>
-                    </div>
-                </div>
-                <div class="benefit reveal">
-                    <div class="benefit-icon"><i class="fas fa-rocket"></i></div>
-                    <div>
-                        <h3>Freelancing & Career Support</h3>
-                        <p>Profile building, proposal writing, pricing strategy, and ongoing mentorship.</p>
-                    </div>
-                </div>
+    <!-- WHY + HIGHLIGHTS -->
+    <section id="highlights">
+      <div class="container">
+        <h2 class="section-title" data-reveal>Why Students Love This Course</h2>
+        <p class="section-sub" data-reveal>
+          Designed to help you become job-ready—not just course-ready.
+        </p>
+
+        <div class="grid-3">
+          <div class="mini-card" data-reveal>
+            <div class="mini-head">
+              <i class="fa-solid fa-user-tie"></i>
+              <strong>Industry Expert Faculty</strong>
             </div>
+            <p>Learn directly from experienced lawyers and corporate professionals.</p>
+          </div>
+          <div class="mini-card" data-reveal>
+            <div class="mini-head">
+              <i class="fa-solid fa-chalkboard"></i>
+              <strong>Live Interactive Sessions</strong>
+            </div>
+            <p>Ask questions, participate in discussions, and receive live guidance.</p>
+          </div>
+          <div class="mini-card" data-reveal>
+            <div class="mini-head">
+              <i class="fa-solid fa-clock-rotate-left"></i>
+              <strong>Lifetime Access</strong>
+            </div>
+            <p>Revisit recordings whenever you need.</p>
+          </div>
+          <div class="mini-card" data-reveal>
+            <div class="mini-head">
+              <i class="fa-solid fa-rocket"></i>
+              <strong>Career Support</strong>
+            </div>
+            <p>Freelancing guidance, networking sessions, and career mentorship.</p>
+          </div>
+          <div class="mini-card" data-reveal>
+            <div class="mini-head">
+              <i class="fa-solid fa-shield-heart"></i>
+              <strong>Money-Back Guarantee</strong>
+            </div>
+            <p>Complete the course sincerely and if you don't find value, eligible for full refund as per policy.</p>
+          </div>
+          <div class="mini-card" data-reveal>
+            <div class="mini-head">
+              <i class="fa-solid fa-layer-group"></i>
+              <strong>Assignment Feedback</strong>
+            </div>
+            <p>Personalized feedback to improve your drafting quality and clarity.</p>
+          </div>
         </div>
+
+        <div style="margin-top: 26px;">
+          <h3 style="margin: 0 0 10px; font-family:'DM Sans', Inter; letter-spacing:-.2px;" data-reveal>
+            Course Highlights
+          </h3>
+
+          <div class="grid-2">
+            <div class="mini-card" data-reveal>
+              <div class="mini-head">
+                <i class="fa-solid fa-hourglass-half"></i>
+                <strong>Duration</strong>
+              </div>
+              <p>6 Months</p>
+            </div>
+            <div class="mini-card" data-reveal>
+              <div class="mini-head">
+                <i class="fa-solid fa-globe"></i>
+                <strong>Mode</strong>
+              </div>
+              <p>Online</p>
+            </div>
+            <div class="mini-card" data-reveal>
+              <div class="mini-head">
+                <i class="fa-solid fa-video"></i>
+                <strong>Live Sessions</strong>
+              </div>
+              <p>54+ Live Sessions</p>
+            </div>
+            <div class="mini-card" data-reveal>
+              <div class="mini-head">
+                <i class="fa-solid fa-file-circle-check"></i>
+                <strong>Agreements Covered</strong>
+              </div>
+              <p>24+ Real-World Agreements</p>
+            </div>
+            <div class="mini-card" data-reveal>
+              <div class="mini-head">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <strong>Personal Assignment Reviews</strong>
+              </div>
+              <p>Detailed drafting feedback from faculty</p>
+            </div>
+            <div class="mini-card" data-reveal>
+              <div class="mini-head">
+                <i class="fa-solid fa-play"></i>
+                <strong>Recorded Lectures + Materials</strong>
+              </div>
+              <p>Reading material + lifetime recording access</p>
+            </div>
+            <div class="mini-card" data-reveal>
+              <div class="mini-head">
+                <i class="fa-solid fa-certificate"></i>
+                <strong>Certificate of Completion</strong>
+              </div>
+              <p>Certificate after successful completion</p>
+            </div>
+            <div class="mini-card" data-reveal>
+              <div class="mini-head">
+                <i class="fa-solid fa-people-group"></i>
+                <strong>Alumni Community Access</strong>
+              </div>
+              <p>Join the alumni network and keep learning</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT MAKES DIFFERENT -->
+    <section>
+      <div class="container">
+        <h2 class="section-title" data-reveal>What Makes This Different?</h2>
+        <p class="section-sub" data-reveal>
+          Most contract drafting courses teach only drafting. This course helps you:
+        </p>
+
+        <div class="alt-list">
+          <div class="alt-item" data-reveal>
+            <div>
+              <h4>Learn drafting from scratch</h4>
+              <p>No prior experience needed.</p>
+            </div>
+            <div class="alt-icon"><i class="fa-solid fa-seedling"></i></div>
+          </div>
+          <div class="alt-item" data-reveal>
+            <div>
+              <h4>Practice with real assignments</h4>
+              <p>Hands-on learning approach with guided drafting.</p>
+            </div>
+            <div class="alt-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+          </div>
+          <div class="alt-item" data-reveal>
+            <div>
+              <h4>Build a professional portfolio</h4>
+              <p>Showcase your work to clients and future employers.</p>
+            </div>
+            <div class="alt-icon"><i class="fa-solid fa-briefcase"></i></div>
+          </div>
+          <div class="alt-item" data-reveal>
+            <div>
+              <h4>Learn negotiation</h4>
+              <p>Essential client communication skills.</p>
+            </div>
+            <div class="alt-icon"><i class="fa-solid fa-handshake"></i></div>
+          </div>
+          <div class="alt-item" data-reveal>
+            <div>
+              <h4>Learn freelancing</h4>
+              <p>Turn your drafting skills into income.</p>
+            </div>
+            <div class="alt-icon"><i class="fa-solid fa-money-bill-trend-up"></i></div>
+          </div>
+          <div class="alt-item" data-reveal>
+            <div>
+              <h4>Learn networking</h4>
+              <p>Build professional connections for more opportunities.</p>
+            </div>
+            <div class="alt-icon"><i class="fa-solid fa-users"></i></div>
+          </div>
+          <div class="alt-item" data-reveal>
+            <div>
+              <h4>Start earning online</h4>
+              <p>Begin your freelance journey with confidence.</p>
+            </div>
+            <div class="alt-icon"><i class="fa-solid fa-sparkles"></i></div>
+          </div>
+        </div>
+
+        <div style="margin-top: 18px; color: var(--muted); font-weight: 800; text-align:center;" data-reveal>
+          It's designed to help you become job-ready—not just course-ready.
+        </div>
+      </div>
     </section>
 
     <!-- FAQ -->
-    <section style="background: #F8FAFC;">
-        <div class="container">
-            <h2 class="section-title reveal">Frequently Asked Questions</h2>
-            
-            <div class="faq-container" style="max-width: 900px; margin: 0 auto;">
-                <div class="faq-item reveal" onclick="toggleFaq(this)">
-                    <div class="faq-question">Do I need prior drafting experience?<i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer">No. The course is structured from fundamentals to advanced commercial agreements.</div>
-                </div>
-                <div class="faq-item reveal" onclick="toggleFaq(this)">
-                    <div class="faq-question">Are session recordings available?<i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer">Yes. All live sessions are recorded and available for lifetime access.</div>
-                </div>
-                <div class="faq-item reveal" onclick="toggleFaq(this)">
-                    <div class="faq-question">Will I get personal feedback on my drafts?<i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer">Yes. Faculty personally reviews all assignments and gives detailed feedback.</div>
-                </div>
-                <div class="faq-item reveal" onclick="toggleFaq(this)">
-                    <div class="faq-question">Is this course completely online?<i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer">Yes, the entire program is 100% online with live interactive sessions.</div>
-                </div>
-                <div class="faq-item reveal" onclick="toggleFaq(this)">
-                    <div class="faq-question">Do you provide a certificate?<i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer">Yes. A professional Certificate of Completion is awarded upon finishing the course.</div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <section id="faq">
+      <div class="container">
+        <h2 class="section-title" data-reveal>Frequently Asked Questions</h2>
 
-    <!-- Pricing -->
-    <section class="pricing" id="pricing">
-        <div class="container">
-            <h2 class="section-title reveal">Limited Time Offer</h2>
-            <div class="pricing-card reveal">
-                <p class="original">Original Price: ₹60,000</p>
-                <h2 style="color: var(--accent); font-size: 2rem; margin: 15px 0;">Special Launch Price</h2>
-                <div class="price">₹24,999</div>
-                <p style="font-size: 1.4rem; margin: 20px 0;">One-time investment. Lifetime skill that can generate recurring income.</p>
-                <a href="#" class="cta-button">Yes, I Want To Enroll Now</a>
-                <p style="margin-top: 25px; color: #10b981; font-weight: 600;">
-                    <i class="fas fa-shield-alt"></i> 30-Day Money Back Guarantee
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="final-cta">
-        <div class="container">
-            <h2 class="reveal">Ready to Become the Go-To Contract Expert?</h2>
-            <p style="font-size: 1.5rem; margin-bottom: 40px; opacity: 0.9;" class="reveal">
-                Join hundreds of lawyers and students who have transformed their careers with this program.
+        <div class="faq">
+          <div class="faq-help" data-reveal>
+            <h3>Get clarity before you enroll</h3>
+            <p>
+              Tap a question to expand the answer. Only one FAQ stays open at a time for a cleaner experience.
             </p>
-            <a href="#" class="cta-button reveal" style="font-size: 1.6rem; padding: 25px 70px;">Enroll Now – Only ₹24,999</a>
+            <p style="margin-bottom:0;">
+              If you'd like, you can also replace the answers with your exact course policy / faculty responses later.
+            </p>
+          </div>
+
+          <div class="faq-list" role="region" aria-label="FAQ list" data-reveal>
+            <div class="faq-item" aria-expanded="false">
+              <button class="faq-q" type="button">
+                <span>Do I need prior drafting experience?</span>
+                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+              </button>
+              <div class="faq-answer">
+                No. The course starts from the fundamentals and gradually moves to advanced commercial agreements.
+              </div>
+            </div>
+
+            <div class="faq-item" aria-expanded="false">
+              <button class="faq-q" type="button">
+                <span>Are recordings available?</span>
+                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+              </button>
+              <div class="faq-answer">
+                Yes. Every session is recorded for lifetime access.
+              </div>
+            </div>
+
+            <div class="faq-item" aria-expanded="false">
+              <button class="faq-q" type="button">
+                <span>Will I receive feedback?</span>
+                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+              </button>
+              <div class="faq-answer">
+                Yes. Faculty personally review assignments and provide improvement suggestions on your drafts.
+              </div>
+            </div>
+
+            <div class="faq-item" aria-expanded="false">
+              <button class="faq-q" type="button">
+                <span>Is this completely online?</span>
+                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+              </button>
+              <div class="faq-answer">
+                Yes. The course is completely online with live interactive sessions.
+              </div>
+            </div>
+
+            <div class="faq-item" aria-expanded="false">
+              <button class="faq-q" type="button">
+                <span>Will I receive a certificate?</span>
+                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+              </button>
+              <div class="faq-answer">
+                Yes. A completion certificate is awarded after successfully completing the course.
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <script>
-        // Scroll Reveal
-        function revealOnScroll() {
-            document.querySelectorAll('.reveal').forEach(el => {
-                const rect = el.getBoundingClientRect();
-                if (rect.top <= window.innerHeight * 0.85) {
-                    el.classList.add('active');
-                }
-            });
+    <!-- PRICING -->
+    <section id="pricing">
+      <div class="container">
+        <h2 class="section-title" data-reveal>Limited-Time Offer</h2>
+        <p class="section-sub" data-reveal>
+          Course fee discounted for a limited-time enrollment window.
+        </p>
+
+        <div class="pricing">
+          <div class="price-box" data-reveal>
+            <div class="price-top">
+              <div>
+                <h3>Course Fee</h3>
+                <p>Invest once. Build a skill that can generate income throughout your legal career.</p>
+              </div>
+              <div style="display:flex; gap:10px; align-items:center; color: var(--muted); font-size: 13px;">
+                <i class="fa-solid fa-clock" style="color: var(--primary)"></i>
+                <span>6-month journey</span>
+              </div>
+            </div>
+
+            <div class="price" aria-label="Pricing">
+              <div class="strike">₹60,000</div>
+              <div class="now">₹24,999</div>
+            </div>
+
+            <div class="price-note">
+              Join our program and learn drafting, negotiation, and freelancing—so you can confidently create contracts
+              and start earning through platforms like Upwork and LinkedIn.
+            </div>
+
+            <div class="guarantee">
+              <i class="fa-solid fa-shield-heart"></i>
+              <div>
+                <strong>Money-Back Guarantee</strong>
+                <span>
+                  Complete the course sincerely and if you don't find value, you're eligible for a full refund according to the course policy.
+                </span>
+              </div>
+            </div>
+
+            <div style="margin-top: 18px; display:flex; gap: 12px; flex-wrap:wrap;">
+              <a class="btn btn-primary" href="#" onclick="return false;">
+                Enroll Now <i class="fa-solid fa-arrow-right"></i>
+              </a>
+              <a class="btn btn-ghost" href="#faq">
+                Ask Questions <i class="fa-solid fa-circle-question"></i>
+              </a>
+            </div>
+
+            <div style="margin-top: 14px; color: var(--muted2); font-size: 13px; line-height:1.45;">
+              (Replace the <b>Enroll Now</b> link with your real checkout URL.)
+            </div>
+          </div>
+
+          <div class="info-block" data-reveal>
+            <h3 style="margin:0 0 10px; font-family:'DM Sans', Inter; letter-spacing:-.2px; font-size: 20px;">
+              What you get
+            </h3>
+
+            <div class="bullet-grid" style="margin-top: 0;">
+              <div class="bullet"><i class="fa-solid fa-check"></i> ✔ 54+ Live Sessions</div>
+              <div class="bullet"><i class="fa-solid fa-check"></i> ✔ Draft 24+ Real-World Agreements</div>
+              <div class="bullet"><i class="fa-solid fa-check"></i> ✔ Personal Feedback on Assignments</div>
+              <div class="bullet"><i class="fa-solid fa-check"></i> ✔ Freelancing &amp; Upwork Training</div>
+              <div class="bullet"><i class="fa-solid fa-check"></i> ✔ Lifetime Access to Recordings</div>
+              <div class="bullet"><i class="fa-solid fa-check"></i> ✔ Money-Back Guarantee</div>
+            </div>
+
+            <div style="margin-top: 16px; padding: 16px; border-radius: 22px; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.03);">
+              <div style="display:flex; gap: 12px; align-items:center;">
+                <i class="fa-solid fa-file-circle-check" style="color: var(--accent); font-size: 22px;"></i>
+                <div style="font-weight: 900;">Build a drafting portfolio clients trust</div>
+              </div>
+              <div style="margin-top: 10px; color: var(--muted); font-size: 14px; line-height:1.6;">
+                You'll draft, receive feedback, and compile work that you can confidently present in your freelancing journey.
+              </div>
+            </div>
+
+            <div style="margin-top: 14px; color: var(--muted); font-size: 14px; line-height:1.6;">
+              <b>Tip:</b> For best results, complete assignments on time—feedback turns into immediate improvement.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta">
+      <div class="container">
+        <div class="final-card" data-reveal>
+          <div class="final-grid">
+            <div>
+              <h2 class="final-title">Ready to Become a Contract Drafting Expert?</h2>
+              <p class="final-text">
+                Whether you're a law student, young lawyer, or aspiring freelancer, this course gives you the practical
+                skills, confidence, and mentorship to succeed.
+              </p>
+            </div>
+
+            <div class="final-actions">
+              <a class="btn btn-primary" href="#pricing">
+                Start your journey today <i class="fa-solid fa-arrow-right"></i>
+              </a>
+              <a class="btn btn-ghost" href="#learn">
+                View Curriculum <i class="fa-solid fa-list-check"></i>
+              </a>
+            </div>
+          </div>
+
+          <div style="margin-top: 18px; color: var(--muted2); font-size: 13px; line-height:1.5;">
+            Replace placeholders (like the checkout link) with your real URLs for full launch readiness.
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Scroll progress bar
+    const progress = document.getElementById('progress');
+    const updateProgress = () => {
+      const doc = document.documentElement;
+      const total = doc.scrollHeight - doc.clientHeight;
+      const scrolled = total <= 0 ? 0 : (doc.scrollTop / total);
+      progress.style.width = (scrolled * 100).toFixed(2) + '%';
+    };
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+
+    // Scroll reveal
+    const revealEls = Array.from(document.querySelectorAll('[data-reveal]'));
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries){
+        if (e.isIntersecting){
+          e.target.classList.add('is-visible');
+          io.unobserve(e.target);
         }
+      }
+    }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+    revealEls.forEach(el => io.observe(el));
 
-        window.addEventListener('scroll', revealOnScroll);
-        window.addEventListener('load', revealOnScroll);
+    // Smooth scroll for in-page links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        if (!id || id === '#') return;
+        const target = document.querySelector(id);
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
 
-        // FAQ Toggle
-        function toggleFaq(element) {
-            element.classList.toggle('active');
-        }
+    // FAQ accordion (FIXED: closed by default + only one open at a time)
+    const faqItems = Array.from(document.querySelectorAll('.faq-item'));
+    faqItems.forEach(item => {
+      const btn = item.querySelector('.faq-q');
+      btn.addEventListener('click', () => {
+        const expanded = item.getAttribute('aria-expanded') === 'true';
+        // close all
+        faqItems.forEach(it => it.setAttribute('aria-expanded', 'false'));
+        // toggle this
+        if (!expanded) item.setAttribute('aria-expanded', 'true');
+      });
+    });
 
-        // Close all FAQs by default (already handled in HTML)
-    </script>
+    // Count-up animation
+    const countEls = Array.from(document.querySelectorAll('.count'));
+    const countIO = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        if (el.dataset.done === '1') return;
+
+        const target = Number(el.dataset.count || 0);
+        const duration = 1100;
+        const start = performance.now();
+
+        const step = (now) => {
+          const t = Math.min(1, (now - start) / duration);
+          const eased = 1 - Math.pow(1 - t, 3);
+          el.textContent = Math.round(eased * target);
+          if (t < 1) requestAnimationFrame(step);
+          else el.dataset.done = '1';
+        };
+        requestAnimationFrame(step);
+      });
+    }, { threshold: 0.4 });
+
+    countEls.forEach(el => countIO.observe(el));
+
+    // 3D tilt for the contract card
+    const tiltCard = document.getElementById('tiltCard');
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduced && tiltCard){
+      const stage = tiltCard.closest('.contract-stage');
+      stage.addEventListener('mousemove', (e) => {
+        const rect = stage.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width;   // 0..1
+        const y = (e.clientY - rect.top) / rect.height;   // 0..1
+        const rotY = (x - 0.5) * 26; // left/right
+        const rotX = (0.5 - y) * 16; // up/down
+        tiltCard.style.transform = `rotateX(${12 + rotX}deg) rotateY(${-18 + rotY}deg)`;
+      });
+      stage.addEventListener('mouseleave', () => {
+        tiltCard.style.transform = 'rotateX(12deg) rotateY(-18deg) translateZ(0)';
+      });
+    }
+  </script>
 </body>
 </html>
